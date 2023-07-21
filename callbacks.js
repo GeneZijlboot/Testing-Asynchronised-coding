@@ -10,11 +10,18 @@ const posts = [
 function getPosts(){
     setTimeout(function(){
         let output = '';
-        posts.forEach(function(post, index){
-            output += `<li>${post.title}</li>`;
+        posts.forEach(function(post, index){ //going down th whole json object with forEach
+            output += `<li>${post.title}</li>`; //adding every single array inside the json object to the output variable
         });
-        document.body.innerHTML = output
-    }, 2000 /*setTimeou() ==> the amount of time it takes*/);
+        document.body.innerHTML = output //printing the output vatiable to the webpage
+    }, 1000 /*setTimeou() ==> the amount of time it takes*/);
 }
 
-getPosts();
+function createPost(post, callback){
+    setTimeout(function(){
+        posts.push(post);
+        callback();
+    }, 2000)
+}
+
+createPost({ title:'Post six', body: 'this is post six'}, getPosts);
