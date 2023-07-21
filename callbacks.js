@@ -14,7 +14,7 @@ function getPosts(){
             output += `<li>${post.title}</li>`; //adding every single array inside the json object to the output variable
         });
         document.body.innerHTML = output //printing the output vatiable to the webpage
-    }, 1000 /*setTimeou() ==> the amount of time it takes*/);
+    }, 1000 /*setTimeout() ==> the amount of time it takes*/);
 }
 
 function createPost(post, callback){
@@ -24,4 +24,4 @@ function createPost(post, callback){
     }, 2000)
 }
 
-createPost({ title:'Post six', body: 'this is post six'}, getPosts);
+createPost({ title:'Post six', body: 'this is post six'}/*post arg*/, getPosts/*callback arg, so it just runs the getPosts function after finished!*/);
